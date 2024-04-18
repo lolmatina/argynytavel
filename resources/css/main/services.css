@@ -1,0 +1,48 @@
+.services {
+  background: url(../../images/bg-services.png);
+  clip-path: url(#crop1);
+  background-size: 100%;
+  background-position: 100% 101%;
+  padding-bottom: 400px;
+  background-repeat: no-repeat;
+}
+
+.services h2 {
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-top: 113px;
+  font-size: 50px;
+}
+.service {
+  background: #fff;
+  padding: 5px;
+  padding-right: 25px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 25px;
+  margin-left: auto;
+  border-radius: 99px;
+  margin-top: 87px;
+}
+
+.services_content .btn {
+  margin-top: 87px;
+}
+
+.service_icon {
+  width: 91px;
+  height: 91px;
+  background: #FFD8B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.services_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

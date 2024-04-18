@@ -1,0 +1,34 @@
+.tours {
+  padding: 95px;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.tours h2{
+  margin-top: 34px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tours h3 {
+  margin-top: 34px;
+  width: 40%;
+  font-size: 31px;
+}
+
+.tours p {
+  font-size: 20px;
+  margin-top: 34px;
+  width: 40%;
+}
+
+.tours .btn {
+  margin-top: 68px;
+}
+
+.tours {
+  padding-bottom: 600px;
+  background: url(../../images/Group\ 338.png);
+  background-size: auto 100%;
+  background-position: 50%;
+}

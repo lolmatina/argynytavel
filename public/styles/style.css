@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('/pages/main/main.css');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.wrapper {
+  background: radial-gradient(circle at left top, rgba(134, 211, 255, 0.6), transparent), radial-gradient(circle at right bottom, rgba(251, 236, 103, 0.5), transparent);
+  background-size: 1920px;
+  background-position: 50% 64%;
+  overflow: hidden;
+}
+
+.container  {
+  max-width: 1270px;
+  margin: 0 auto;
+}
+
+a.btn {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+  transition: 0.3s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+a.btn::before {
+  /* border: inherit; */
+  border-radius: inherit;
+  transition: 0.3s;
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: -1;
+}
+
+a.btn:hover::before {
+  width: 100%;
+  color: #fff !important;
+  background: #000;
+}
+
+a.btn:hover {
+  color: #fff !important;
+}
+
+a.btn.yellow {
+  background: #FCD15B;
+  padding: 19px 31px;
+  border: 1px solid #FCD15B;
+}
+
+.yellow {
+  color: #FCD15B;
+}
+
+.ways {
+  width: 1048px;
+  height: 1048px;
+  position: relative;
+  overflow: hidden;
+}
+
+.way_bg {
+  width: 1048px;
+  height: 1048px;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 524px;
+}
+
+.way1 .way_bg {
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url(../images/ways/1.jpg);
+  background-size: cover;
+  transform: translate(-514px, -83.11px) rotate(0deg);
+  animation-name: rotate_bg1;
+}
+
+.way2 .way_bg {
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url(../images/ways/2.jpg);
+  background-size: cover;
+  transform: translate(-514px, -83.11px) rotate(-120deg);
+  animation-name: rotate_bg2;
+}
+
+.way3 .way_bg {
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url(../images/ways/3.jpg);
+  background-size: cover;
+  transform: translate(-514px, -83.11px) rotate(-240deg);
+  animation-name: rotate_bg3;
+}
+
+.way {
+  /* background-image: linear-gradient(red, yellow); */
+  background-attachment: local;
+  width: 51.022900763%;
+  height: 84.139312977%;
+  clip-path: url(#way1);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform-origin: 10px 50%;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
+}
+
+.way1 {
+  transform: translateY(-50%);
+  animation-name: rotate1;
+}
+
+.way2 {
+  transform: translateY(-50%) rotate(-240deg);
+  animation-name: rotate2;
+}
+
+.way3 {
+  transform: translateY(-50%) rotate(-120deg);
+  animation-name: rotate3;
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: translateY(-50%) rotate(-120deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(240deg);
+  }
+}
+
+@keyframes rotate3 {
+  0% {
+    transform: translateY(-50%) rotate(-240deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(120deg);
+  }
+}
+
+@keyframes rotate_bg1 {
+  0% {
+    transform: translate(-514px, -83.11px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-514px, -83.11px) rotate(-360deg);
+  }
+}
+
+@keyframes rotate_bg2 {
+  0% {
+    transform: translate(-514px, -83.11px) rotate(-120deg);
+  }
+  100% {
+    transform: translate(-514px, -83.11px) rotate(-480deg);
+  }
+}
+
+@keyframes rotate_bg3 {
+  0% {
+    transform: translate(-514px, -83.11px) rotate(-240deg);
+  }
+  100% {
+    transform: translate(-514px, -83.11px) rotate(-600deg);
+  }
+}
+
+#wavepath {
+  animation: wave 30s;
+  animation-timing-function:cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation-iteration-count: infinite;
+  transition: 3.5s;
+}
+
+@keyframes wave {
+  0% {
+    d: path("M 1919.5 1195.74 L 1817.4 1223.63 L 1693.83 1242.12 L 1693.81 1242.12 L 1565.97 1255.12 H 1494.99 C 1472.39 1255.12 1449.83 1253.32 1427.52 1249.74 L 1334.54 1234.82 C 1095.68 1196.5 915.707 997.068 902.018 755.541 C 894.117 616.124 778.759 507.119 639.119 507.119 C 510.424 507.119 381.729 507.119 253.034 507.119 C 144.501 507.119 49.2682 434.797 20.1323 330.248 C 12.3997 302.501 7.3554 274.075 5.069 245.361 L 0.5 187.98 V 0.5 H 1919.5 V 1195.74 Z");
+  }
+  50% {
+    d: path("M 1919.5 1195.74 L 1817.4 1223.63 L 1693.83 1242.12 L 1693.81 1242.12 L 1565.97 1255.12 H 1494.99 C 1472.39 1255.12 1449.83 1253.32 1427.52 1249.74 L 1334.54 1234.82 C 1087 1183 1432 930 902.018 755.541 C 552 635 877 284 561 308 C 508 312 481 366 447 297 C 393 160 319 375 147 261 C 86 221 1 212 4 192 L 0.5 187.98 V 0.5 H 1919.5 V 1195.74 Z");
+  }
+  100% {
+    d: path("M 1919.5 1195.74 L 1817.4 1223.63 L 1693.83 1242.12 L 1693.81 1242.12 L 1565.97 1255.12 H 1494.99 C 1472.39 1255.12 1449.83 1253.32 1427.52 1249.74 L 1334.54 1234.82 C 1095.68 1196.5 915.707 997.068 902.018 755.541 C 894.117 616.124 778.759 507.119 639.119 507.119 C 510.424 507.119 381.729 507.119 253.034 507.119 C 144.501 507.119 49.2682 434.797 20.1323 330.248 C 12.3997 302.501 7.3554 274.075 5.069 245.361 L 0.5 187.98 V 0.5 H 1919.5 V 1195.74 Z");
+  }
+}
+
+@keyframes wave-bottom {
+  0% {
+    d: path("M270.5 151C163.878 143.768 40.5 72.5 1 1V1051H373.5H1921V769.5C1635.4 770.3 1302.37 794 1053 470C784 120.5 528.5 168.5 270.5 151Z");
+  }
+  50% {
+    d: path("M 270.5 151 C 198 21 93 2 1 1 V 1051 H 373.5 H 1921 V 769.5 C 1727 506 1565 375 1053 470 C 534 515 470 476 270.5 151 Z");
+  }
+  100% {
+    d: path("M270.5 151C163.878 143.768 40.5 72.5 1 1V1051H373.5H1921V769.5C1635.4 770.3 1302.37 794 1053 470C784 120.5 528.5 168.5 270.5 151Z");
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 1s;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50%);
+  transition: all 1s;
+}
+
+.fade {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.animate.show{
+  opacity: 1;
+  transform: none;
+}
+
+.hidden {
+  display: none;
+}

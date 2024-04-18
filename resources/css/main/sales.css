@@ -1,0 +1,43 @@
+.sales {
+  padding: 175px 0;
+  background: radial-gradient(circle at left top, rgba(251, 236, 103, 0.5), transparent), 
+              radial-gradient(circle at right top, rgba(251, 236, 103, 0.5), transparent),
+              radial-gradient(circle at left bottom, rgba(134, 211, 255, 0.6), transparent),
+              radial-gradient(circle at right bottom, rgba(134, 211, 255, 0.6), transparent);
+}
+
+.slider {
+  width: 100%;
+  padding: 75px 0 15px;
+  overflow: hidden;
+}
+
+.slider-content {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.slider-content-box {
+  display: flex;
+  border-radius: 60px;
+}
+
+.slider-box {
+  margin: 0 81px;
+  padding: 48px 45px;
+}
+
+.slider h3 {
+  font-size: 50px;
+}
+
+.slider p {
+  font-size: 25px;
+  width: 50%;
+  margin-top: 40px;
+}
+
+.slider .btn {
+  margin-top: 60px;
+}
+

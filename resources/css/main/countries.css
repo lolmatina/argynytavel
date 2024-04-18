@@ -1,0 +1,116 @@
+.countries {
+  padding: 95px;
+  width: 100%;
+  text-align: right;
+  /* padding-bottom: 500px; */
+}
+
+
+.countries_left {
+  width: 50%;
+  float: left;
+  padding-bottom: 50%;
+  position: relative;
+}
+.countries_right {
+  width: 50%;
+  float: right;
+}
+
+.countries h2{
+  margin-top: 34px;
+  font-weight: bold;
+  text-align: right;
+  margin-left: auto;
+}
+
+.countries h3 {
+  margin-top: 34px;
+  margin-left: auto;
+  font-size: 31px;
+}
+
+.countries p {
+  font-size: 20px;
+  margin-top: 34px;
+  margin-left: auto;
+}
+
+.countries .btn {
+  margin-top: 68px;
+}
+
+.countries_img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(../../images/Group\ 300.png);
+  background-size: 100%
+}
+
+.countries {
+  background: url(../../images/Group\ 299.png);
+  background-size: 1920px;
+  background-position: 50% -814%;
+  background-repeat: no-repeat;
+}
+
+.clear {
+  clear: both;
+}
+
+.countries_block {
+  width: 280px;
+  height: 280px;
+  padding: 20px;
+  padding-top: 0 ;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 40px;
+}
+
+.countries_block h3 {
+  margin-left: 0;
+  color: #fff;
+}
+
+.countries_ways {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.countries_block .btn {
+  font-size: 15px !important;
+  padding: 10px 20px !important;
+  display: inline-block;
+}
+
+.countries_block:nth-child(1) {
+  margin-top: 225px;
+  background: url(../../images/1.jpg);
+}
+
+.countries_block:nth-child(2) {
+  margin-top: 150px;
+  background: url(../../images/2.jpg);
+}
+
+.countries_block:nth-child(3) {
+  margin-top: 75px;
+  background: url(../../images/3.jpg);
+}
+
+.countries_block:nth-child(4) {
+  background: url(../../images/4.jpg);
+}
+
+
+/* .tours {
+  background: url(../../images/Group\ 338.png);
+  background-size: cover;
+  background-position: 40% 95%;
+} */

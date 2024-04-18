@@ -1,0 +1,98 @@
+.services {
+  width: 100%;
+  min-height: 1237px;
+  position: relative;
+}
+
+.services-bg {
+  background: url(../../images/services/bg.png);
+  background-size: cover;
+  width: 100%;
+  height: 84.882780921%;
+  clip-path: url(#Bpath);
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 1;
+  /* animation: wave-bottom 2s linear infinite; */
+}
+
+.services-bg_boy {
+  background: url(../../images/services/boy.png);
+  background-size: 100%;
+  width: 30.3875%;
+  position: absolute;
+  bottom: 0;
+  left: 22.604166666%;
+  z-index: 2;
+}
+
+.services-bg_boy::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.services-bg_mother {
+  background: url(../../images/services/mother.png);
+  background-size: 100%;
+  width: 33.072917%;
+  position: absolute;
+  bottom: 0;
+  left: 41.4583%;
+  z-index: 2;
+}
+
+.services-bg_mother::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+#wavepath-bot {
+  animation: wave-bottom 60s linear infinite;
+}
+
+.services_content {
+  position: relative;
+  z-index: 2;
+}
+
+.services h2 {
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-top: 113px;
+  font-size: 50px;
+}
+.service {
+  background: #fff;
+  padding: 5px;
+  padding-right: 25px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 25px;
+  margin-left: auto;
+  border-radius: 99px;
+  margin-top: 87px;
+}
+
+.services_content .btn {
+  margin-top: 87px;
+}
+
+.service_icon {
+  width: 91px;
+  height: 91px;
+  background: #FFD8B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.services_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

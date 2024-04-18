@@ -1,0 +1,42 @@
+.sales {
+  padding: 175px 0;
+  background: url(/images/offers-bg.png);
+  background-size: auto 100%;
+  background-position: 50%;
+}
+
+.slider {
+  width: 100%;
+  padding: 75px 0 15px;
+  overflow: hidden;
+}
+
+.slider-content {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.slider-content-box {
+  display: flex;
+  border-radius: 60px;
+}
+
+.slider-box {
+  margin: 0 81px;
+  padding: 48px 45px;
+}
+
+.slider h3 {
+  font-size: 50px;
+}
+
+.slider p {
+  font-size: 25px;
+  width: 50%;
+  margin-top: 40px;
+}
+
+.slider .btn {
+  margin-top: 60px;
+}
+
