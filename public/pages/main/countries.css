@@ -60,14 +60,6 @@
 }
 
 .countries_block {
-  width: 280px;
-  height: 280px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  border-radius: 40px;
   background-size: 120% !important;
   background-position: 50% !important;
   transition: 0.3s;
@@ -85,17 +77,14 @@
 }
 
 .countries_block:nth-child(1) {
-  margin-top: 225px;
   background: url(../../images/1.jpg);
 }
 
 .countries_block:nth-child(2) {
-  margin-top: 150px;
   background: url(../../images/2.jpg);
 }
 
 .countries_block:nth-child(3) {
-  margin-top: 75px;
   background: url(../../images/3.jpg);
 }
 

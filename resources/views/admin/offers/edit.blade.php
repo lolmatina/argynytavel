@@ -29,15 +29,19 @@
       <label for="preview" class="mt-2">
         Фото для карточки
       </label>
-      <input type="file" accept=".jpg,.jpeg" name="preview" id="preview">
-      <label for="preview" class="mt-2">
-        Фото для страницы
-      </label>
+      <input type="file" accept=".jpg,.jpeg,.png" name="preview" id="preview">
       <label for="preview_text" class="mt-2">
         Текст-описание для карточки
       </label>
       <input value="{{$offer['preview_text']}}" type="text" name="preview_text" id="preview_text" class="p-1 w-full border-[1px] border-[rgba(0,0,0,0.1)] mt-2">
+      <label for="image" class="mt-2">
+        Фото для страницы
+      </label>
       <input type="file" accept=".jpg,.jpeg,.png" name="image" id="image">
+      <label for="image_mobile" class="mt-2">
+        Фото для страницы (мобильная версия)
+      </label>
+      <input type="file" accept=".jpg,.jpeg,.png" name="image_mobile" id="image">
       <button type="submit" class="px-4 py-2 mt-4 rounded-md bg-lime-500 ">
         Добавить страну для акции
       </button>

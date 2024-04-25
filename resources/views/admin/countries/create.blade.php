@@ -13,8 +13,6 @@
     </div>
     <form action="/admin/countries/store" enctype="multipart/form-data" method="POST" class="flex flex-col pb-[200px]">
       @csrf
-
-
       <label for="name" class="mt-2">
         Название страны
       </label>
@@ -103,40 +101,74 @@
   </div>
 
   <script>
-    let count = 0;
     const addAttraction = document.getElementById('addAttraction');
     const attractionLayout = document.getElementById('attractionLayout');
 
     addAttraction.addEventListener('click', () => {
-      attractionLayout.innerHTML += `
-        <div class="attractionBlock flex flex-col justify-center items-center p-3 border border-[rgba(0,0,0,0.1)] rounded-md mt-2" index="${count}">
-          <input type="button" class="cursor-pointer bg-red-400 px-3 py-2 inline-block rounded-md" value="Удалить" index="${count}" onclick="removeAttraction(${count})">
-          <label for="attraction_name" class="w-full">
-            Наименование
-          </label>
-          <input type="text" name="attraction_name[]" id="attraction_name" class="p-1 w-full border-[1px] border-[rgba(0,0,0,0.1)] mt-2">
-  
-          <label for="attraction_name" class="w-full">
-            Описание
-          </label>
-          <input type="text" name="attraction_description[]" id="attraction_description" class="p-1 w-full border-[1px] border-[rgba(0,0,0,0.1)] mt-2">
-  
-          <label for="attraction_image" class="w-full">
-            Фото
-          </label>
-          <input type="file" accept=".jpg,.jpeg,.png" name="attraction_image[]" id="attraction_image" class="w-full">
-        </div>`;
+      const block = document.createElement('div');
+      Object.assign(block, {
+        className: "attractionBlock flex flex-col justify-center items-center p-3 border border-[rgba(0,0,0,0.1)] rounded-md mt-2",
+      });
 
-      count++;
+      const deleteBtn = document.createElement('input');
+      Object.assign(deleteBtn, {
+        type: 'button',
+        className: 'cursor-pointer bg-red-400 px-3 py-2 inline-block rounded-md',
+        value: 'Удалить'
+      });
 
-      console.log(1);
+      const label_name = document.createElement('label');
+      Object.assign(label_name, {
+        className: 'w-full'
+      });
+      label_name.textContent = 'Наименование';
+
+      const name = document.createElement('input');
+      Object.assign(name, {
+        type: 'text',
+        name: 'attraction_name[]',
+        id: 'attraction_name',
+        className: 'p-1 w-full border-[1px] border-[rgba(0,0,0,0.1)] mt-2',
+      });
+
+      const label_description = document.createElement('label');
+      Object.assign(label_description, {
+        className: 'w-full'
+      });
+      label_description.textContent = 'Описание';
+
+      const description = document.createElement('input');
+      Object.assign(description, {
+        type: 'text',
+        name: 'attraction_description[]',
+        id: 'attraction_description',
+        className: 'p-1 w-full border-[1px] border-[rgba(0,0,0,0.1)] mt-2',
+      });
+
+      const label_image = document.createElement('label');
+      Object.assign(label_image, {
+        className: 'w-full'
+      });
+      label_image.textContent = 'Фото';
+
+      const image = document.createElement('input');
+      Object.assign(image, {
+        type: 'file',
+        name: 'attraction_image[]',
+        id: 'attraction_image',
+        className: 'w-full',
+        accept: '.jpg,.jpeg,.png'
+      });
+
+      block.append(deleteBtn, label_name, name, label_description, description, label_image, image);
+
+      deleteBtn.addEventListener('click', () => {
+        block.remove();
+      })
+
+      attractionLayout.append(block);
     });
-
-    function removeAttraction(index) {
-      const attraction = document.querySelector(`.attractionBlock[index="${index}"]`);
-      attraction.remove();
-      count--;
-    }
   </script>
+  <script src="https://kit.fontawesome.com/10b4c523e5.js" crossorigin="anonymous"></script>
 </body>
 </html>

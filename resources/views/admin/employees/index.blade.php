@@ -3,7 +3,7 @@
 <head>
   @php
   // dd($countries);
-    $title = 'Администрирование'
+    $title = 'Администрирование|Сотрудники'
   @endphp
   @include('vendor/header')
   <link rel="stylesheet" href="/styles/datatables.min.css">
@@ -14,31 +14,31 @@
       <a href="/admin" class="inline-block mx-auto mt-4 px-4 py-1 rounded-sm bg-gray-400">Назад</a>
     </div>
     <h2 class="text-xl font-semibold text-center my-8">
-      Список стран
+      Список сотрудников
     </h2>
     <table id="table" class="display">
       <thead>
         <tr>
           <th>№</th>
-          <th>Страна</th>
+          <th>Сотрудник</th>
           <th>Действия</th>
         </tr>
       </thead>
       <tbody>
-        @foreach($countries as $key => $country)
+        @foreach($employees as $key => $employee)
         <tr>
           <td>{{$key + 1}}</td>
-          <td>{{$country['name']}}</td>
+          <td>{{$employee['firstName']}} {{$employee['lastName']}}</td>
           <td>
-            <a href="/admin/countries/edit/{{$country['id']}}" class="px-4 py-1 rounded-sm bg-gray-400">Редактировать</a>
-            <a href="/admin/countries/drop/{{$country['id']}}" class="px-4 py-1 rounded-sm bg-red-400">Удалить</a>
+            <a href="/admin/employees/edit/{{$employee['id']}}" class="px-4 py-1 rounded-sm bg-gray-400">Редактировать</a>
+            <a href="/admin/employees/drop/{{$employee['id']}}" class="px-4 py-1 rounded-sm bg-red-400">Удалить</a>
           </td>
         </tr>
         @endforeach
       </tbody>
     </table>
     <div class="text-center">
-      <a href="/admin/countries/create" class="inline-block mx-auto mt-4 px-4 py-1 rounded-sm bg-lime-400">Добавить страну</a>
+      <a href="/admin/employees/create" class="inline-block mx-auto mt-4 px-4 py-1 rounded-sm bg-lime-400">Добавить сотрудника</a>
     </div>
   </div>
   <script src="/scripts/datatables.min.js"></script>

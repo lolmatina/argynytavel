@@ -7,6 +7,7 @@ use App\Models\Offers;
 use App\Models\OfferCountry;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
+use Illuminate\Support\Facades\File;
 
 class OfferController extends Controller
 {
@@ -22,13 +23,10 @@ class OfferController extends Controller
     }
 
     public function show($id) {
-        if ($country = OfferCountry::find($id)) {
-            $offers = Offers::where('country_id', $id)->get();
-            $hotels = Hotels::where('country_id', $id)->get();
-            return view('offers/offer', ['offers' => $offers, 'hotels' => $hotels, 'country' => $country]);
-        }
-
-        abort(404);
+        $country = OfferCountry::findOrFail($id);
+        $offers = Offers::where('country_id', $id)->get();
+        $hotels = Hotels::where('country_id', $id)->get();
+        return view('offers/offer', ['offers' => $offers, 'hotels' => $hotels, 'country' => $country]);
     }
 
     public function create() {
@@ -59,10 +57,10 @@ class OfferController extends Controller
         ]);
 
 
-        if ($request->hasFile('image') && $request->hasFile('preview')) {
-            // error_log($request->hasFile('image'), $request->hasFile('preview'));
+        if ($request->hasFile('image') && $request->hasFile('preview') && $request->hasFile('image_mobile')) {
             $formFields['image'] = $request->file('image')->store('offers', 'public');
             $formFields['preview'] = $request->file('preview')->store('offers', 'public');
+            $formFields['image_mobile'] = $request->file('image_mobile')->store('offers', 'public');
         }
 
         OfferCountry::create($formFields);
@@ -78,23 +76,61 @@ class OfferController extends Controller
             'preview_text' => 'required|string'
         ]);
 
+        $country = OfferCountry::findOrFail($id);
+
         if ($request->hasFile('image')) {
+            $path = storage_path('app/public/'.$country['image']);
+            if (File::exists($path)) {
+                unlink($path);
+            }
             $formFields['image'] = $request->file('image')->store('offers', 'public');
         }
 
-        if ($request->hasFile('preview'))
+        if ($request->hasFile('preview')) {
+            $path = storage_path('app/public/'.$country['preview']);
+            if (File::exists($path)) {
+                unlink($path);
+            }
             $formFields['preview'] = $request->file('preview')->store('offers', 'public');
+        }
+        if ($request->hasFile('image_mobile')) {
+            $path = storage_path('app/public/'.$country['image_mobile']);
+            if (File::exists($path)) {
+                unlink($path);
+            }
+            $formFields['image_mobile'] = $request->file('image_mobile')->store('offers', 'public');
+        }
 
-        OfferCountry::whereId($id)->update($formFields);
+        $country->update($formFields);
 
         return redirect('/admin/offers')->with('message', 'Страна была успешна отредактирована');
     }
 
     public function drop($id) {
-        if (auth() -> check())
-            return view('admin/index');
+        if (!auth() -> check())
+            return redirect('/admin');
 
-        OfferCountry::whereId($id) -> delete();
+        $country = OfferCountry::find($id);
+        // dd($country);
+
+        $path = storage_path('app/public/'.$country['image']);
+        if (File::exists($path)) {
+            unlink($path);
+        }
+
+        $path = storage_path('app/public/'.$country['preview']);
+        if (File::exists($path)) {
+            unlink($path);
+        }
+
+        $path = storage_path('app/public/'.$country['image_mobile']);
+        if (File::exists($path)) {
+            unlink($path);
+        }
+
+        Offers::where('country_id', $id)->delete();
+        Hotels::where('country_id', $id)->delete();
+        $country->delete();
 
         return redirect('/admin/offers')->with('message', 'Страна была успешна удалена');
     }

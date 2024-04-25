@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('/pages/main/main.css');
+@import url('main.css');
 
 
 * {
@@ -27,7 +28,7 @@ h2 {
 }
 
 a.btn {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   cursor: pointer;
   z-index: 3;
@@ -227,7 +228,7 @@ a.btn.yellow {
   }
 }
 
-.fade-in-left {
+/* .fade-in-left {
   opacity: 0;
   transform: translateX(-50%);
   transition: all 1s;
@@ -251,4 +252,4 @@ a.btn.yellow {
 
 .hidden {
   display: none;
-}
+} */

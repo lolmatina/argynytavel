@@ -80,7 +80,7 @@
         @endforeach
       </select>
       <button type="button" onclick="sumbitForm()" class="px-4 py-2 mt-12 mb-12 rounded-md bg-lime-500 ">
-        Добавить страну для акции
+        Добавить акцию для страны
       </button>
     </form>
   </div>

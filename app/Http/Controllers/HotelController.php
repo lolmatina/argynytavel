@@ -19,6 +19,9 @@ class HotelController extends Controller
     }
 
     public function store(Request $request) {
+        if (!auth() -> check())
+            return view('admin/index');
+
         $formFields = $request->validate([
             'name' => 'required|string',
             'rate' => 'required',
@@ -27,20 +30,45 @@ class HotelController extends Controller
         ]);
 
         if ($request->hasFile('image'))
-            $formFields['image'] = $request->file('image')->store('hotels', ['public']);
+            $formFields['image'] = $request->file('image')->store('hotels', 'public');
 
-
-        $country = OfferCountry::find($formFields['country_id']);
-        error_log($country['offers']);
         $offer = Hotels::create($formFields);
-        if ($country['hotels'])
-            $country['hotels'] = $country['hotels'] . ',' . $offer['id'];
-        else 
-            $country['hotels'] = $offer['id'];
 
-        $country->save();
-        error_log($country['hotels']);
+        return redirect('admin/offers/');
+    }
 
+    public function edit(Request $request, $id) {
+        if (!auth() -> check())
+            return view('admin/index');
+
+        return view('admin/offers/hotels/edit', [
+            'countries' => OfferCountry::all(),
+            'hotel' => Hotels::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        if (!auth() -> check())
+            return view('admin/index');
+
+        $formFields = $request->validate([
+            'name' => 'required|string',
+            'rate' => 'required',
+            'price' => 'required',
+            'country_id' => 'required'
+        ]);
+
+        $offer = Hotels::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $path = storage_path('app/public/'.$hotel['image']);
+            if (File::exists($path)) {
+                unlink($path);
+            }
+            $formFields['image'] = $request->file('image')->store('hotels', 'public');
+        }
+
+        $offer->update($formFields);
 
         return redirect('admin/offers/');
     }
@@ -49,10 +77,13 @@ class HotelController extends Controller
         if (!auth() -> check())
             return view('admin/index');
 
-        $hotel = Hotels::whereId($id);
-        $country = OfferCountry::whereId($hotel['country_id']);
-        $country['offers'] = array_diff(explode(',', $country['offers']), [$hotel['country_id']]);
-        $country->save();
+        $hotel = Hotels::findOrFail($id);
+
+        $path = storage_path('app/public/'.$hotel['image']);
+        if (File::exists($path)) {
+            unlink($path);
+        }
+
         $hotel->delete();
 
         return redirect('admin/offers/');

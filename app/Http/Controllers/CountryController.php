@@ -40,8 +40,8 @@ class CountryController extends Controller
         $formFields = $request->get('name', 'visa', 'requirements', 'description', 'capital', 'time', 'currency', 'language', 'climate', 'location');
 
         if ($request->hasFile('flag') && $request->hasFile('image')) {
-            $formFields['flag'] = $request->file('flag') -> store('countries', ['public']);
-            $formFields['image'] = $request->file('image') -> store('countries', ['public']);
+            $formFields['flag'] = $request->file('flag') -> store('countries', 'public');
+            $formFields['image'] = $request->file('image') -> store('countries', 'public');
         }
 
         $country = Countries::create($formFields);
@@ -52,10 +52,10 @@ class CountryController extends Controller
                     'country_id' => $country['id'],
                     'name' => $request['attraction_name'][$i],
                     'description' => $request['attraction_description'][$i]
-                ];
+                ]; 
 
                 if ($request->hasFile('attraction_image'))
-                    $fields['image'] = $request->file('attraction_image')[$i] -> store('countries', ['public']);
+                    $fields['image'] = $request->file('attraction_image')[$i] -> store('countries', 'public');
 
                 Attractions::create($fields);                
             }
@@ -68,14 +68,14 @@ class CountryController extends Controller
         if (!auth() -> check())
             return redirect('/admin');
 
-        $country = Countries::find($id);
+        $country = Countries::findOrFail($id);
         $attractions = Attractions::where('country_id', $id)->get();
         return view('/admin/countries/edit', ['country' => $country, 'attractions' => $attractions]);
     }
 
     // Shows single country
     public function show($id) {
-        if ($data = Countries::find($id))
+        if ($data = Countries::findOrFail($id))
 
             return view('countries/country', [
                 'data' => $data,

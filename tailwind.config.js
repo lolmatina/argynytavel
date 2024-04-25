@@ -21,10 +21,10 @@ export default {
             maxWidth: '600px',
           },
           '@screen md': {
-            maxWidth: '700px',
+            maxWidth: '100%',
           },
           '@screen lg': {
-            maxWidth: '800px',
+            maxWidth: '100%',
           },
           '@screen xl': {
             maxWidth: '1270px',

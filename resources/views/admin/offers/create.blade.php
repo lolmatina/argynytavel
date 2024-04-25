@@ -28,7 +28,7 @@
       <label for="preview" class="mt-2">
         Фото для карточки
       </label>
-      <input type="file" accept=".jpg,.jpeg" name="preview" id="preview">
+      <input type="file" accept=".jpg,.jpeg,.png" name="preview" id="preview">
       <label for="preview_text" class="mt-2">
         Текст-описание для карточки
       </label>
@@ -37,6 +37,10 @@
         Фото для страницы
       </label>
       <input type="file" accept=".jpg,.jpeg,.png" name="image" id="image">
+      <label for="image_mobile" class="mt-2">
+        Фото для страницы (мобильная версия)
+      </label>
+      <input type="file" accept=".jpg,.jpeg,.png" name="image_mobile" id="image">
       <button type="submit" class="px-4 py-2 mt-4 rounded-md bg-lime-500 ">
         Добавить страну для акции
       </button>
